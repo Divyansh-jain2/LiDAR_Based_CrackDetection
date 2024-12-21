@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery with CSV</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .gallery img {
+        max-width: 200px;
+        max-height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      }
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 80%;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Gallery</h1>
+    <div class="gallery">
+      {% for image in images %}
+      <img src="{{ url_for('images', filename=image) }}" alt="Image" />
+      {% endfor %}
+    </div>
+    <h2>CSV Contents</h2>
+    {% if csv_data %}
+    <table>
+      <thead>
+        <tr>
+          {% for header in csv_data[0] %}
+          <th>{{ header }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in csv_data[1:] %}
+        <tr>
+          {% for cell in row %}
+          <td>{{ cell }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No CSV file found or CSV is empty.</p>
+    {% endif %}
+  </body>
+</html>

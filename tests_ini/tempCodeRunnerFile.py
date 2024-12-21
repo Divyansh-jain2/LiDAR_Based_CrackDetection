@@ -1,0 +1,1 @@
+selected_columns_df = df.iloc[:, 22:65].apply(pd.to_numeric, errors='coerce')
