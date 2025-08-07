@@ -1,5 +1,5 @@
 # LiDAR-Based-CrackDetection
-![Poster](LIDAR BASED CRACK DETECTION.png)
+![Poster](LIDAR_BASED_CRACK_DETECTION.png)
 A sophisticated crack detection system that combines LiDAR scanning with computer vision using YOLOv8 for accurate identification of natural cracks. The system integrates data from both LiDAR and RGB camera inputs to provide comprehensive crack detection capabilities.
 
 ## Hardware Requirements
